@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Santiago Alvarez | Professional Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Elegant dark blue */
+            --secondary-color: #3498db; /* Bright blue for details */
+            --text-color: #333;
+            --bg-color: #f4f7f6;
+            --sidebar-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .resume-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* 1/3 sidebar, 2/3 content */
+            background-color: white;
+            width: 100%;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* --- LEFT SIDEBAR --- */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--secondary-color);
+            margin-bottom: 20px;
+            background-color: #ddd; /* Fallback color */
+        }
+
+        .sidebar h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .sidebar h2 {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+            letter-spacing: 1px;
+        }
+
+        .contact-info {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .contact-item i {
+            width: 25px;
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        .skills-section h3, .languages h3 {
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .skill-tag {
+            background-color: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-right: 5px;
+        }
+
+        /* --- RIGHT MAIN CONTENT --- */
+        .main-content {
+            padding: 40px;
+            background-color: #fff;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            text-transform: uppercase;
+        }
+
+        .summary p {
+            margin-bottom: 30px;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* Experience and Education Cards */
+        .timeline-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 2px solid #eee;
+            position: relative;
+            transition: transform 0.2s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(5px);
+            border-left: 2px solid var(--secondary-color);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .date-range {
+            font-size: 0.85rem;
+            color: #999;
+            font-style: italic;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .job-description ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        .job-description li::before {
+            content: '•';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Action Button */
+        .btn-download {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-download:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                padding: 30px 20px;
+            }
+            .main-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="resume-container">
+        <aside class="sidebar">
+            <img src="./Foto de perfil linkedin.jpeg" alt="Santiago Alvarez" class="profile-img">
+            
+            <h1>Santiago Alvarez</h1>
+            <h2>Business Administrator & Web Developer</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Málaga, Spain</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+35679331109">(+34) 695 298 676</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:santian92@gmail.com">santian92@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="#">Santiago Alvarez Casallas</a>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h3>Digital Skills</h3>
+                <div class="skill-tag">HTML5 / CSS3</div>
+                <div class="skill-tag">Power BI</div>
+                <div class="skill-tag">Advanced Excel</div>
+                <div class="skill-tag">Photoshop</div>
+                <div class="skill-tag">Phyton</div>
+                <div class="skill-tag">Java</div>
+            </div>
+
+            <div class="skills-section" style="margin-top: 30px;">
+                <h3>Competencies</h3>
+                <div class="skill-tag">Leadership</div>
+                <div class="skill-tag">B2B Negotiation</div>
+                <div class="skill-tag">Project Management</div>
+                <div class="skill-tag">Customer Service</div>
+            </div>
+
+            <div class="languages" style="margin-top: 30px;">
+                <h3>Languages</h3>
+                <div class="skill-tag">Spanish (Native)</div>
+                <div class="skill-tag">English (B2 - Advanced)</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <section class="summary">
+                <h2 class="section-title">Professional Profile</h2>
+                <p>
+                    Business Administrator and current MBA student with a strong technical background in Project Management and Web Development. I have a distinguished track record in the multinational financial sector, specializing in Factoring and B2B commercial management. Passionate about technology, sales, and data analysis to deliver strategic solutions in competitive markets.
+                </p>
+            </section>
+
+            <section class="education">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="timeline-item">
+                    <div class="job-title">Master in Business Administration (MBA)</div>
+                    <div class="company-name">University of Malaga, Spain</div>
+                    <span class="date-range">September 2025 - 2026 (In Progress)</span>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Full Stack Web Development Bootcamp</div>
+                    <div class="company-name">The App Brewery (Online)</div>
+                    <span class="date-range">July 2024 - Present</span>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Bachelor in Business Administration</div>
+                    <div class="company-name">Fundación Universitaria del Área Andina, Colombia</div>
+                    <span class="date-range">2021 - 2023</span>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Diploma in Comprehensive Project Management</div>
+                    <div class="company-name">Fundación Universitaria del Área Andina</div>
+                    <span class="date-range">July 2023 - December 2023</span>
+                </div>
+            </section>
+
+            <section class="experience">
+                <h2 class="section-title">Work Experience</h2>
+
+                <div class="timeline-item">
+                    <div class="job-title">Commercial Manager</div>
+                    <div class="company-name">FACTOTAL COLOMBIA SAS (Factoring Multinational)</div>
+                    <span class="date-range">Aug 2023 – Feb 2024 | Bogota, Colombia</span>
+                    <div class="job-description">
+                        <ul>
+                            <li>Responsible for developing and maintaining B2B business relationships and client portfolio.</li>
+                            <li>Managed a portfolio of 30+ business clients with a monthly trading volume of $5MM.</li>
+                            <li>Continuously explored commercial needs to add value and minimize credit risk.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Account Executive</div>
+                    <div class="company-name">KLYM S.A.S (Fintech / Online Factoring)</div>
+                    <span class="date-range">Oct 2022 – Jul 2023 | Bogota, Colombia</span>
+                    <div class="job-description">
+                        <ul>
+                            <li>Managed portfolio to achieve commercial recurrence and profitability goals.</li>
+                            <li>Focused on B2B approach for linking clients to invoice negotiation platforms and Working Capital.</li>
+                            <li>Ensured clients understood the usability of the digital platform.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="job-title">Financial Advisor</div>
+                    <div class="company-name">BBVA (Banco Bilbao Vizcaya Argentaria)</div>
+                    <span class="date-range">Oct 2021 – Sept 2022 | Bogota, Colombia</span>
+                    <div class="job-description">
+                        <ul>
+                            <li>Provided comprehensive advice on financial products, cash management, and collections.</li>
+                            <li>Managed and monitored loan processes and customer loyalty initiatives.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div style="text-align: center;">
+                <a href="mailto:santian92@gmail.com" class="btn-download">Contact Now</a>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
